@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Categoria } from '../categoria';
+import { CategoriaClass } from '../../categoriaClass';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,12 @@ export class CategoriaService {
   constructor(private http: HttpClient) { }
 
 
-  salvar(categoria: Categoria): Observable<Categoria> {
-    return this.http.post<Categoria>(this.dataBasePath + '/categorias', categoria);
+  salvar(categoria: CategoriaClass): Observable<CategoriaClass> {
+    return this.http.post<CategoriaClass>(this.dataBasePath + '/categorias', categoria);
   }
 
-  listarTodos(): Observable<Categoria[]>{
-    return this.http.get<Categoria[]>(this.dataBasePath + '/categorias');
+  listarTodos(): Observable<CategoriaClass[]>{
+    return this.http.get<CategoriaClass[]>(this.dataBasePath + '/categorias');
   }
   
 }

@@ -1,1 +1,55 @@
-<p>lugar works!</p>
+<div class="p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg mt-6">
+    <h2 class="text-2x1 font-semibold text-gray-700 mb-4">Novo Lugar</h2>
+    <form id="lugarForm" [formGroup]="camposForm" (ngSubmit)="salvar()">
+
+        <div class="mb-4">
+            <label for="nome" class="block text-gray-600 font-medium mb-2">Nome do lugar</label>
+            <input type="text" name="nome" id="nome" formControlName="nome" placeholder="Praia do sol "
+                class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
+        </div>
+
+        <div class="mb-4">
+            <label for="nome" class="block text-gray-600 font-medium mb-2">Categorias</label>
+            <select name="categoria" id="categoria" formControlName="categoria"
+                class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
+                <option [value]="">Selecione uma categoria</option>
+                @for (categoria of categorias; track $index) {
+                <option [value]="categoria.nome">
+                    {{ categoria.nome }}
+                </option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <label for="localizacao" class="block text-gray-600 font-medium mb-2">Localizacao</label>
+            <input type="text" name="localizacao" id="localizacao" formControlName="localizacao"
+                placeholder="São Paulo "
+                class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
+        </div>
+
+        <div class="mb-4">
+            <label for="imagemUrl" class="block text-gray-600 font-medium mb-2">Imagem Url</label>
+            <input type="text" name="imagemUrl" id="imagemUrl" formControlName="imagemUrl"
+                placeholder="http://exemolo.com/foto/jpg"
+                class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
+        </div>
+
+        <div class="mb-4">
+            <label for="avaliacao" class="block text-gray-600 font-medium mb-2">Avaliacao</label>
+            <select name="avaliacao" id="avaliacao" formControlName="avaliacao"
+                class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
+                <option [value]="1">1 - Ruim </option>
+                <option [value]="2">2 - Regular </option>
+                <option [value]="3">3 - Bom </option>
+                <option [value]="4">4 - Muito bom </option>
+                <option [value]="5">5 - Execelente </option>
+            </select>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition-colors">
+            Salvar Lugar
+        </button>
+        
+    </form>
+</div>

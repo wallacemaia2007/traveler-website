@@ -8,40 +8,43 @@ import { LugarService } from '../service/lugar-service';
   selector: 'app-lugar',
   standalone: false,
   templateUrl: './lugar.html',
-  styleUrl: './lugar.scss'
+  styleUrl: './lugar.scss',
 })
-export class Lugar implements OnInit{
-
+export class Lugar implements OnInit {
   camposForm: FormGroup;
-  categorias: CategoriaClass[] = []; 
+  categorias: CategoriaClass[] = [];
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.categoriaService.listarTodos().subscribe({
-      next: (listarCategorias) => this.categorias = listarCategorias
-    })
+      next: (listarCategorias) => (this.categorias = listarCategorias),
+    });
   }
 
-  constructor(
-    private categoriaService: CategoriaService,
-    private service: LugarService ){
+  constructor(private categoriaService: CategoriaService, private service: LugarService) {
     this.camposForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       categoria: new FormControl('', Validators.required),
       localizacao: new FormControl('', Validators.required),
       imagemUrl: new FormControl('', Validators.required),
       avaliacao: new FormControl('', Validators.required),
-    })
+    });
   }
 
-  salvar(){
-    this.service.salvar(this.camposForm.value).subscribe({
+  salvar() {
+    this.camposForm.markAllAsTouched();
+    if (this.camposForm.valid) {
+      this.service.salvar(this.camposForm.value).subscribe({
         next: (lugar) => {
           console.log('Lugar salvo com sucesso:', lugar);
-          this.camposForm.reset(); 
-          },
+          this.camposForm.reset();
+        },
         error: (error) => console.error('Erro ao salvar o lugar:', error),
       });
-
+    }
   }
 
+  isCampoInvalido(nomeCampo: string): boolean {
+    const campo = this.camposForm.get(nomeCampo);
+    return (campo?.invalid && (campo?.touched || campo?.dirty)) || false;
+  }
 }

@@ -6,10 +6,13 @@
             <label for="nome" class="block text-gray-600 font-medium mb-2">Nome do lugar</label>
             <input type="text" name="nome" id="nome" formControlName="nome" placeholder="Praia do sol "
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
+            @if (isCampoInvalido('nome')) {
+            <span class="text-red-500 text-sm">Campo obrigatório</span>
+            }
         </div>
 
         <div class="mb-4">
-            <label for="nome" class="block text-gray-600 font-medium mb-2">Categorias</label>
+            <label for="categoria" class="block text-gray-600 font-medium mb-2">Categorias</label>
             <select name="categoria" id="categoria" formControlName="categoria"
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
                 <option [value]="">Selecione uma categoria</option>
@@ -19,6 +22,9 @@
                 </option>
                 }
             </select>
+            @if (isCampoInvalido('categoria')) {
+            <span class="text-red-500 text-sm">Campo obrigatório</span>
+            }
         </div>
 
         <div class="mb-4">
@@ -26,15 +32,19 @@
             <input type="text" name="localizacao" id="localizacao" formControlName="localizacao"
                 placeholder="São Paulo "
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
+            @if (isCampoInvalido('localizacao')) {
+            <span class="text-red-500 text-sm">Campo obrigatório</span>
+            }
         </div>
-
         <div class="mb-4">
             <label for="imagemUrl" class="block text-gray-600 font-medium mb-2">Imagem Url</label>
             <input type="text" name="imagemUrl" id="imagemUrl" formControlName="imagemUrl"
                 placeholder="http://exemolo.com/foto/jpg"
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
+            @if (isCampoInvalido('imagemUrl')) {
+            <span class="text-red-500 text-sm">Campo obrigatório</span>
+            }
         </div>
-
         <div class="mb-4">
             <label for="avaliacao" class="block text-gray-600 font-medium mb-2">Avaliacao</label>
             <select name="avaliacao" id="avaliacao" formControlName="avaliacao"
@@ -45,11 +55,14 @@
                 <option [value]="4">4 - Muito bom </option>
                 <option [value]="5">5 - Execelente </option>
             </select>
+            @if (isCampoInvalido('avaliacao')) {
+            <span class="text-red-500 text-sm">Campo obrigatório</span>
+            }
         </div>
 
         <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition-colors">
             Salvar Lugar
         </button>
-        
+
     </form>
 </div>

@@ -35,5 +35,23 @@
       "nome": "dad",
       "descricao": "dad"
     }
+  ],
+  "lugares": [
+    {
+      "id": "9485",
+      "nome": "praia linda",
+      "categoria": "Praia",
+      "localizacao": "SP",
+      "imagemUrl": "dsadas",
+      "avaliacao": "5"
+    },
+    {
+      "id": "7ec4",
+      "nome": "",
+      "categoria": "",
+      "localizacao": "",
+      "imagemUrl": "",
+      "avaliacao": ""
+    }
   ]
 }

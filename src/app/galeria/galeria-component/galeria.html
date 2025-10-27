@@ -1,31 +1,50 @@
 <div class="p-4 bg-white shadow">
     <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-        <input type="text" placeholder="Pesquisar pelo nome do local"
-            class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
-        <select name="" id=""
-            class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400">
-
-            <option [value]="">Todas Categorias</option>
+        <input type="text" placeholder="Pesquisar pelo nome do local" [(ngModel)]="filtroNome"
+            (input)="aplicarFiltros()"
+            class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400 focus:outline-none">
+        <select [(ngModel)]="filtroCategoria" (change)="aplicarFiltros()"
+            class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400 focus:outline-none">
+            <option value="">Todas Categorias</option>
             @for (cat of categorias; track $index) {
-            <option [value]="cat.nome"> {{ cat.nome }} </option>
+            <option [value]="cat.nome">{{ cat.nome }}</option>
             }
         </select>
+        @if (filtroNome || filtroCategoria) {
+        <button (click)="limparFiltros()"
+            class="whitespace-nowrap px-6 py-3 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+            Limpar Filtros
+        </button>
+        }
+    </div>
+    <div class="mt-3 text-center text-gray-600">
+        <p>Mostrando <strong>{{ lugaresFiltrados.length }}</strong> de <strong>{{ lugares.length }}</strong> lugares</p>
     </div>
 </div>
-
-<div id="lugaresLista" class=" p-4 grid  grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    @for (lugar of lugares; track $index) {
-    <div class="bg-white shadow rounded overflow-hidden">
+<div id="lugaresLista" class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    @if (lugaresFiltrados.length === 0) {
+    <div class="col-span-full text-center py-12">
+        <p class="text-gray-500 text-xl">Nenhum lugar encontrado com os filtros aplicados.</p>
+        <button (click)="limparFiltros()"
+            class="mt-4 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+            Ver todos os lugares
+        </button>
+    </div>
+    }
+    @for (lugar of lugaresFiltrados; track $index) {
+    <div class="bg-white shadow rounded overflow-hidden hover:shadow-lg transition-shadow">
         <img [src]="lugar.imagemUrl" [alt]="lugar.nome" class="w-full h-40 object-cover">
         <div class="p-4">
-            <h2 class="text-lg font-semibold"> {{ lugar.nome }} </h2>
-            <p class="text-gray-500">Categoria: <span class="text-blue-600"> {{lugar.categoria}} </span></p>
-            <p class="text-gray-500">Localização: {{lugar.localizacao}} </p>
+            <h2 class="text-lg font-semibold text-gray-800">{{ lugar.nome }}</h2>
+            <p class="text-gray-500">
+                Categoria: <span class="text-blue-600 font-medium">{{ lugar.categoria }}</span>
+            </p>
+            <p class="text-gray-500">Localização: {{ lugar.localizacao }}</p>
             <div class="mt-2 flex items-center">
-                <span class="text-yellow-500" [innerHTML]="getTotalEstrelas(lugar)" ></span>
-                <span class="ml-2 text-gray-600"> {{lugar.avaliacao}} </span>
+                <span class="text-yellow-500" [innerHTML]="getTotalEstrelas(lugar)"></span>
+                <span class="ml-2 text-gray-600">({{ lugar.avaliacao }})</span>
             </div>
         </div>
     </div>
-}
+    }
 </div>

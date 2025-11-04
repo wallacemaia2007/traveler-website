@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriaService } from './service/categoria-service';
 
@@ -6,9 +6,9 @@ import { CategoriaService } from './service/categoria-service';
   selector: 'app-categoria',
   standalone: false,
   templateUrl: './categoria.html',
-  styleUrl: './categoria.scss',
+  styleUrls: ['./categoria.scss'],
 })
-export class Categoria {
+export class Categoria implements OnInit {
   camposForm: FormGroup;
 
   constructor(private service: CategoriaService) {
@@ -17,6 +17,8 @@ export class Categoria {
       descricao: new FormControl('', Validators.required),
     });
   }
+
+  ngOnInit(): void {}
 
   salvarCategoria() {
     this.camposForm.markAllAsTouched();
@@ -38,8 +40,7 @@ export class Categoria {
   }
 
   resetarCampos() {
-    const confirmacaoMsg = 'Deseja limpar os campos?';
-    if (confirm(confirmacaoMsg)) {
+    if (confirm('Deseja limpar os campos?')) {
       this.camposForm.reset();
     }
   }

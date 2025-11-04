@@ -1,24 +1,31 @@
-<div class="bg-gradient-to-r from-blue-500 to-blue-700 text-white min-h-screen flex justify-center items-center">
-    <div class="text-center px-6">
-        <h1 class="text-4xl font-bold mb-6">Bem vindo à sua Lista de Lugares Favoritos!</h1>
-        <p class="text-1xl mb-8">Explore, organize e compartilhe os lugares incríveis que você adora em um só lugar</p>
+<div
+    class="bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 text-white min-h-screen flex justify-center items-center px-4">
+    <div class="text-center max-w-2xl">
+        <h1 class="text-5xl font-extrabold mb-6 drop-shadow-md">
+            Bem-vindo à sua Lista de Lugares Favoritos!
+        </h1>
+        <p class="text-lg mb-10 text-blue-100">
+            Explore, organize e compartilhe os lugares incríveis que você adora — tudo em um só lugar.
+        </p>
         @if (isLoggedIn()) {
         <div
-            class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-lg shadow-lg w-max mx-auto transform transition duration-300 hover:scale-105">
-            <img [src]="profile?.picture" alt="{{profile?.name}}" class="w-24 h-24 rounded-lg object-cover" />
+            class="flex flex-col md:flex-row items-center gap-6 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-xl w-fit mx-auto transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <img [src]="profile?.picture" alt="{{profile?.name}}"
+                class="w-24 h-24 rounded-full border-4 border-white shadow-md object-cover" />
             <div>
                 <button (click)="navegar()"
-                    class="bg-white text-blue-700 font-semibold py-3 px-8 rounded-full hover:underline transition transform duration-300 hover:scale-105 text-xl">
-                    Olá {{ profile?.name }}, clique aqui para aproveitar o site!!
+                    class="flex items-center justify-center gap-3 bg-white text-blue-700 font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:text-black-800 hover:scale-105 shadow-lg">
+                    Bem-vindo de volta {{ profile?.name }}!
                 </button>
             </div>
         </div>
         }
         @if (!isLoggedIn()) {
         <button (click)="logarComGoogle()"
-            class="flex items-center gap-3 bg-white text-blue-700 font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition transform duration-300 hover:scale-105 mx-auto">
+            class="flex items-center justify-center gap-3 bg-white text-blue-700 font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:text-blue-800 hover:scale-105 mx-auto shadow-lg">
             <img src="https://cdn3.iconfinder.com/data/icons/logos-brands-3/24/logo_brand_brands_logos_google-512.png"
-                width="40px" class="pr-2"> Logar com Google
+                width="40px" class="pr-1" />
+            Logar com Google
         </button>
         }
     </div>

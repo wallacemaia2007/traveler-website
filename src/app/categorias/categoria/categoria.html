@@ -7,28 +7,27 @@
                 placeholder="Ex: Restaurantes, Praias, Lojas"
                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus focus:ring-blue-400"
                 required>
-            @if (isCampoInvalido('nome')) {
-            <span class="text-red-500 text-sm">Campo obrigatório</span>
-            }
+                @if (isCampoInvalido('nome')) {
+                    <span class="text-red-500 text-sm">Campo obrigatório</span>
+                }
         </div>
         <hr>
         <div class="mb-4">
-            <label class="block text-gray-600 font-medium mb-2">Nome</label>
+            <label class="block text-gray-600 font-medium mb-2">Descrição</label>
             <textarea rows="4" id="descricao" name="descricao" formControlName="descricao"
                 placeholder="Descrição da categoria"
-                class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outiline-none focus focus:ring-blue-400"
+                class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus focus:ring-blue-400"
                 required>
             </textarea>
             @if (isCampoInvalido('descricao')) {
             <span class="text-red-500 text-sm">Campo obrigatório</span>
             }
         </div>
-        <div class="flex justify-center mt-5">
+                <div class="flex justify-center mt-5">
             <button type="submit" class="w-40 bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition-colors">
                 Salvar
             </button>
-            <button type="button"
-                class="w-40 ml-10 bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition-colors"
+            <button type="button" class="w-40 ml-10 bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition-colors"
                 (click)="resetarCampos()">
                 Limpar
             </button>

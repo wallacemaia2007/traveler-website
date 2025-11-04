@@ -26,7 +26,7 @@ export class Categoria {
         next: (categoria) => {
           console.log('Categoria salva com sucesso:', categoria);
           this.camposForm.reset();
-          },
+        },
         error: (error) => console.error('Erro ao salvar categoria:', error),
       });
     }
@@ -37,7 +37,10 @@ export class Categoria {
     return (campo?.invalid && (campo?.touched || campo?.dirty)) || false;
   }
 
-  resetarCampos(){
-    this.camposForm.reset();
+  resetarCampos() {
+    const confirmacaoMsg = 'Deseja limpar os campos?';
+    if (confirm(confirmacaoMsg)) {
+      this.camposForm.reset();
+    }
   }
 }

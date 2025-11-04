@@ -48,7 +48,10 @@ export class Lugar implements OnInit {
     return (campo?.invalid && (campo?.touched || campo?.dirty)) || false;
   }
 
-  resetarCampos(){
-    this.camposForm.reset();
+  resetarCampos() {
+    const confirmacaoMsg = 'Deseja limpar os campos?';
+    if (confirm(confirmacaoMsg)) {
+      this.camposForm.reset();
+    }
   }
 }

@@ -40,4 +40,11 @@ export class Layout implements OnInit {
   logout(){
     this.loginService.logout();
   }
+
+  home(){
+    this.router.navigate(['/']);
+  }
+
+
+
 }

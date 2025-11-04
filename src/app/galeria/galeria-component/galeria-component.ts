@@ -3,6 +3,7 @@ import { LugarService } from '../../lugares/service/lugar-service';
 import { CategoriaService } from '../../categorias/categoria/service/categoria-service';
 import { LugarClass } from '../../lugares/lugarClass';
 import { CategoriaClass } from '../../categorias/categoriaClass';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-galeria-component',
@@ -18,7 +19,11 @@ export class GaleriaComponent implements OnInit {
   filtroNome: string = '';
   filtroCategoria: string = '';
 
-  constructor(private lugaresService: LugarService, private categoriasService: CategoriaService) {}
+  constructor(
+    private lugaresService: LugarService,
+    private categoriasService: CategoriaService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.categoriasService.listarTodos().subscribe((categorias) => {
@@ -52,5 +57,9 @@ export class GaleriaComponent implements OnInit {
   getTotalEstrelas(lugar: LugarClass): string {
     const avaliacao = lugar.avaliacao || 0;
     return '&#9733;'.repeat(avaliacao) + '&#9734;'.repeat(5 - avaliacao);
+  }
+
+  cadastrarLugar() {
+    this.router.navigate(['/paginas/lugares']);
   }
 }

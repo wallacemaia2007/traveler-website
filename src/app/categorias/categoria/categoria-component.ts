@@ -36,4 +36,8 @@ export class Categoria {
     const campo = this.camposForm.get(nomeCampo);
     return (campo?.invalid && (campo?.touched || campo?.dirty)) || false;
   }
+
+  resetarCampos(){
+    this.camposForm.reset();
+  }
 }

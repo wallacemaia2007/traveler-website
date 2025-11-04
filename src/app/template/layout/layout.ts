@@ -37,14 +37,15 @@ export class Layout implements OnInit {
     return rotaChildren?.snapshot.data as LayoutProps;
   }
 
-  logout(){
-    this.loginService.logout();
+  logout() {
+    const confirmLogout = confirm('Tem certeza que deseja sair?');
+    if (confirmLogout) {
+      this.loginService.logout();
+      this.router.navigate(['/']);
+    }
   }
 
-  home(){
+  home() {
     this.router.navigate(['/']);
   }
-
-
-
 }

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { LugarService } from '../../lugares/service/lugar-service';
 import { CategoriaService } from '../../categorias/categoria/service/categoria-service';
 import { LugarClass } from '../../lugares/lugarClass';
 import { CategoriaClass } from '../../categorias/categoriaClass';
 import { Router } from '@angular/router';
+import { ModalService } from '../../modal-component/service/modal-service';
+import { ModalComponent } from '../../modal-component/modal-component';
 
 @Component({
   selector: 'app-galeria-component',
@@ -19,13 +21,16 @@ export class GaleriaComponent implements OnInit {
   filtroNome: string = '';
   filtroCategoria: string = '';
 
-  constructor(
-    private lugaresService: LugarService,
-    private categoriasService: CategoriaService,
-    private router: Router
-  ) {}
+  private lugaresService = inject(LugarService);
+  private categoriasService = inject(CategoriaService);
+  private router = inject(Router);
+  private modalService = inject(ModalService);
 
   ngOnInit(): void {
+    this.carregarDados();
+  }
+
+  carregarDados(): void {
     this.categoriasService.listarTodos().subscribe((categorias) => {
       this.categorias = categorias;
     });
@@ -59,7 +64,33 @@ export class GaleriaComponent implements OnInit {
     return '&#9733;'.repeat(avaliacao) + '&#9734;'.repeat(5 - avaliacao);
   }
 
-  cadastrarLugar() {
+  cadastrarLugar(): void {
     this.router.navigate(['/paginas/lugares']);
+  }
+
+  abrirDetalhes(lugar: LugarClass): void {
+    const dialogRef = this.modalService.abrir(
+      ModalComponent,
+      lugar,
+      '900px'
+    );
+
+    dialogRef.closed.subscribe((resultado) => {
+      if (resultado) {
+        if (resultado.acao === 'alterar') {
+          this.alterarLugar(resultado.lugar);
+        } else if (resultado.acao === 'deletar') {
+          this.deletarLugar(resultado.lugar);
+        }
+      }
+    });
+  }
+
+  alterarLugar(lugar: LugarClass): void {
+    console.log('Alterar lugar:', lugar);
+  }
+
+  deletarLugar(lugar: LugarClass): void {
+    console.log('Deletar lugar:', lugar);
   }
 }

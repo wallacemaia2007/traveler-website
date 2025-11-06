@@ -21,22 +21,25 @@
         <p>Mostrando <strong>{{ lugaresFiltrados.length }}</strong> de <strong>{{ lugares.length }}</strong> lugares</p>
     </div>
 </div>
+
 <div id="lugaresLista" class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     @if (lugaresFiltrados.length === 0) {
     <div class="col-span-full text-center py-12">
         <p class="text-gray-500 text-xl">Nenhum lugar encontrado</p>
-            <button (click)="limparFiltros()"
-                class="mt-4 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-                Ver todos os lugares
-            </button>
-            <button (click)="cadastrarLugar()"
-                class="mt-4 ml-5 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-                Cadastrar Lugar
-            </button>
-        </div>
+        <button (click)="limparFiltros()"
+            class="mt-4 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+            Ver todos os lugares
+        </button>
+        <button (click)="cadastrarLugar()"
+            class="mt-4 ml-5 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+            Cadastrar Lugar
+        </button>
+    </div>
     }
     @for (lugar of lugaresFiltrados; track $index) {
-    <div class="bg-white shadow rounded overflow-hidden hover:shadow-lg transition-shadow">
+    <div 
+        (click)="abrirDetalhes(lugar)"
+        class="bg-white shadow rounded overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:scale-105">
         <img [src]="lugar.imagemUrl" [alt]="lugar.nome" class="w-full h-40 object-cover">
         <div class="p-4">
             <h2 class="text-lg font-semibold text-gray-800">{{ lugar.nome }}</h2>

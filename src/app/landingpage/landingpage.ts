@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Profile } from './profile';
 import { Router } from '@angular/router';
-import { AuthGooleService } from '../auth-goole-service';
+import { AuthGooleService } from '../services/auth-goole-service';
 
 @Component({
   selector: 'app-landingpage',

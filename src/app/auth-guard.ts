@@ -1,5 +1,5 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthGooleService } from './auth-goole-service';
+import { AuthGooleService } from './services/auth-goole-service';
 import { inject } from '@angular/core';
 
 export const authGuard: CanActivateFn = (route, state) => {

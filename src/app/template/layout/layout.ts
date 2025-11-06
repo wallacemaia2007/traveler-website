@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LayoutProps } from './layout-props';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
-import { AuthGooleService } from '../../auth-goole-service';
+import { AuthGooleService } from '../../services/auth-goole-service';
 
 @Component({
   selector: 'app-layout',

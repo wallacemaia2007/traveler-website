@@ -4,8 +4,9 @@ import { CategoriaService } from '../../categorias/categoria/service/categoria-s
 import { LugarClass } from '../../lugares/lugarClass';
 import { CategoriaClass } from '../../categorias/categoriaClass';
 import { Router } from '@angular/router';
-import { ModalService } from '../../modal-component/service/modal-service';
+import { ModalService } from '../../services/modal-service';
 import { ModalComponent } from '../../modal-component/modal-component';
+import { EditarLugarModalComponent } from '../../edit-modal-component/edit-modal-component';
 
 @Component({
   selector: 'app-galeria-component',
@@ -69,11 +70,7 @@ export class GaleriaComponent implements OnInit {
   }
 
   abrirDetalhes(lugar: LugarClass): void {
-    const dialogRef = this.modalService.abrir(
-      ModalComponent,
-      lugar,
-      '900px'
-    );
+    const dialogRef = this.modalService.abrir(ModalComponent, lugar, '900px');
 
     dialogRef.closed.subscribe((resultado) => {
       if (resultado) {
@@ -87,7 +84,15 @@ export class GaleriaComponent implements OnInit {
   }
 
   alterarLugar(lugar: LugarClass): void {
+    const dialogRef = this.modalService.abrir(EditarLugarModalComponent, lugar, '900px');
 
+    dialogRef.closed.subscribe((resultado) => {
+      if (resultado) {
+        this.lugaresService.atualizar(resultado.lugar.id, resultado.lugar).subscribe(() => {
+          this.carregarDados();
+        });
+      }
+    });
   }
 
   deletarLugar(lugar: LugarClass): void {

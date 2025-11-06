@@ -1,7 +1,7 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
-import { auth } from './auth.config';
+import { auth } from '../auth.config';
 
 
 @Injectable({

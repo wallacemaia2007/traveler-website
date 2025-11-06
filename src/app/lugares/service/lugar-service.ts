@@ -22,4 +22,8 @@ export class LugarService {
   deletar(lugarId: number): Observable<void> {
     return this.http.delete<void>(`${this.dataBasePath}/lugares/${lugarId}`);
   }
+
+  atualizar(lugarId: number ,lugar: LugarClass): Observable<LugarClass> {
+    return this.http.put<LugarClass>(`${this.dataBasePath}/lugares/${lugarId}`, lugar);
+  }
 }

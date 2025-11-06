@@ -32,11 +32,14 @@ export class ModalComponent {
 
   alterar(): void {
     this.dialogRef.close({ acao: 'alterar', lugar: this.lugar });
+    
   }
 
   deletar(): void {
-    this.dialogRef.close({ acao: 'deletar', lugar: this.lugar });
-    this.galeriaService.emitirDelecao(this.lugar);
+    if(confirm('Tem certeza que deseja deletar este lugar?')){
+      this.dialogRef.close({ acao: 'deletar', lugar: this.lugar });
+      this.galeriaService.emitirDelecao(this.lugar);
+    }
   }
 
   fechar(): void {

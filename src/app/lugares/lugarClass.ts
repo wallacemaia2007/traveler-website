@@ -1,5 +1,5 @@
 export class LugarClass {
-    id?: number;
+    id?: string;
     nome?: string;
     categoria?: string;
     localizacao?: string;

@@ -84,13 +84,11 @@ export class GaleriaComponent implements OnInit {
   }
 
   alterarLugar(lugar: LugarClass): void {
-    const dialogRef = this.modalService.abrir(EditarLugarModalComponent, lugar, '900px');
+    const dialogRef = this.modalService.abrir(EditarLugarModalComponent, { lugar: lugar }, '900px');
 
     dialogRef.closed.subscribe((resultado) => {
-      if (resultado) {
-        this.lugaresService.atualizar(resultado.lugar.id, resultado.lugar).subscribe(() => {
-          this.carregarDados();
-        });
+      if (resultado && resultado.acao === 'atualizado') {
+        this.carregarDados();
       }
     });
   }

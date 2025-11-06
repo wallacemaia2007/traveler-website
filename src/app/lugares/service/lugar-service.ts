@@ -19,11 +19,11 @@ export class LugarService {
     return this.http.get<LugarClass[]>(this.dataBasePath + '/lugares');
   }
 
-  deletar(lugarId: number): Observable<void> {
-    return this.http.delete<void>(`${this.dataBasePath}/lugares/${lugarId}`);
+  atualizar(lugarId: string | number, lugar: LugarClass): Observable<LugarClass> {
+    return this.http.put<LugarClass>(`${this.dataBasePath}/lugares/${lugarId}`, lugar);
   }
 
-  atualizar(lugarId: number ,lugar: LugarClass): Observable<LugarClass> {
-    return this.http.put<LugarClass>(`${this.dataBasePath}/lugares/${lugarId}`, lugar);
+  deletar(lugarId: string | number): Observable<void> {
+    return this.http.delete<void>(`${this.dataBasePath}/lugares/${lugarId}`);
   }
 }

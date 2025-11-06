@@ -39,18 +39,28 @@ export class EditarLugarModalComponent implements OnInit {
   }
 
   salvarAlteracoes() {
-    if (!this.lugar.id) {
-      console.error('ID do lugar não encontrado!');
+    if (!this.lugar?.id) {
+      alert('Erro: ID do lugar não encontrado. Feche e tente novamente.');
       return;
     }
 
-    if (this.camposForm.valid) {
-      const lugarAtualizado = { ...this.lugar, ...this.camposForm.value };
-
-      this.lugarService.atualizar(this.lugar.id!, lugarAtualizado).subscribe(() => {
-        this.dialogRef.close({ acao: 'atualizado', lugar: lugarAtualizado });
-      });
+    if (!this.camposForm.valid) {
+      this.camposForm.markAllAsTouched();
+      return;
     }
+
+    const lugarAtualizado: LugarClass = {
+      id: this.lugar.id,
+      ...this.camposForm.value,
+    };
+    this.lugarService.atualizar(lugarAtualizado.id!, lugarAtualizado).subscribe({
+      next: (response) => {
+        this.dialogRef.close({ acao: 'atualizado', lugar: lugarAtualizado });
+      },
+      error: (error) => {
+        alert('Erro ao salvar alterações. Verifique o console.');
+      },
+    });
   }
 
   cancelar() {

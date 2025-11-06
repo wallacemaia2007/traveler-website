@@ -87,10 +87,16 @@ export class GaleriaComponent implements OnInit {
   }
 
   alterarLugar(lugar: LugarClass): void {
-    console.log('Alterar lugar:', lugar);
+
   }
 
   deletarLugar(lugar: LugarClass): void {
-    console.log('Deletar lugar:', lugar);
+    this.lugaresService.deletar(lugar.id!).subscribe({
+      next: () => {
+        this.lugares = this.lugares.filter((l) => l.id !== lugar.id);
+        this.aplicarFiltros();
+      },
+      error: (error) => console.error('Erro ao deletar o lugar:', error),
+    });
   }
 }

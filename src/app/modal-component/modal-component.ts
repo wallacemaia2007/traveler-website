@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CommonModule } from '@angular/common';
 import { LugarClass } from '../lugares/lugarClass';
+import { GaleriaService } from '../galeria/service/galeria-service';
 
 @Component({
   selector: 'app-modal-detalhes-lugar',
@@ -13,7 +14,7 @@ import { LugarClass } from '../lugares/lugarClass';
 export class ModalComponent {
   lugar = inject<LugarClass>(DIALOG_DATA);
   private dialogRef = inject(DialogRef);
-
+  galeriaService = inject(GaleriaService);
   getEstrelasHtml(): string {
     const avaliacao = this.lugar.avaliacao || 0;
     const estrelasPreenchidas = '★'.repeat(avaliacao);
@@ -35,6 +36,7 @@ export class ModalComponent {
 
   deletar(): void {
     this.dialogRef.close({ acao: 'deletar', lugar: this.lugar });
+    this.galeriaService.emitirDelecao(this.lugar);
   }
 
   fechar(): void {

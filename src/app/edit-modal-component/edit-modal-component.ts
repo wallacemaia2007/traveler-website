@@ -5,6 +5,7 @@ import { LugarClass } from '../lugares/lugarClass';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriaClass } from '../categorias/categoriaClass';
 import { CategoriaService } from '../categorias/categoria/service/categoria-service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-editar-lugar-modal',
@@ -20,7 +21,8 @@ export class EditarLugarModalComponent implements OnInit {
     private lugarService: LugarService,
     private categoriaService: CategoriaService,
     private dialogRef: DialogRef<{ acao: string; lugar: LugarClass }>,
-    @Inject(DIALOG_DATA) public data: { lugar: LugarClass }
+    @Inject(DIALOG_DATA) public data: { lugar: LugarClass },
+    private snack: MatSnackBar,
   ) {
     this.lugar = { ...data.lugar };
     this.camposForm = new FormGroup({
@@ -40,7 +42,7 @@ export class EditarLugarModalComponent implements OnInit {
 
   salvarAlteracoes() {
     if (!this.lugar?.id) {
-      alert('Erro: ID do lugar não encontrado. Feche e tente novamente.');
+      this.mostrarMensagem('Lugar inválido para atualização.');
       return;
     }
 
@@ -55,15 +57,20 @@ export class EditarLugarModalComponent implements OnInit {
     };
     this.lugarService.atualizar(lugarAtualizado.id!, lugarAtualizado).subscribe({
       next: (response) => {
+        this.mostrarMensagem('Lugar atualizado com sucesso!');
         this.dialogRef.close({ acao: 'atualizado', lugar: lugarAtualizado });
       },
       error: (error) => {
-        alert('Erro ao salvar alterações. Verifique o console.');
+        this.mostrarMensagem('Erro ao atualizar o lugar: ' + error);
       },
     });
   }
 
   cancelar() {
     this.dialogRef.close();
+  }
+
+  mostrarMensagem(mensagem: string) {
+    this.snack.open(mensagem, 'Ok', { duration: 3000 });
   }
 }

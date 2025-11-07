@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriaClass } from '../../categorias/categoriaClass';
 import { CategoriaService } from '../../categorias/categoria/service/categoria-service';
@@ -6,6 +6,7 @@ import { LugarService } from '../service/lugar-service';
 import { ConfirmationComponent } from '../../dialog/confirmation-component/confirmation-component';
 import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-lugar',
@@ -16,6 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class Lugar implements OnInit {
   camposForm: FormGroup;
   categorias: CategoriaClass[] = [];
+  snack: MatSnackBar = inject(MatSnackBar);
 
   ngOnInit(): void {
     this.categoriaService.listarTodos().subscribe({
@@ -23,7 +25,11 @@ export class Lugar implements OnInit {
     });
   }
 
-  constructor(private categoriaService: CategoriaService, private service: LugarService, private dialog: MatDialog) {
+  constructor(
+    private categoriaService: CategoriaService,
+    private service: LugarService,
+    private dialog: MatDialog
+  ) {
     this.camposForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       categoria: new FormControl('', Validators.required),
@@ -36,12 +42,24 @@ export class Lugar implements OnInit {
   salvar() {
     this.camposForm.markAllAsTouched();
     if (this.camposForm.valid) {
-      this.service.salvar(this.camposForm.value).subscribe({
-        next: (lugar) => {
-          console.log('Lugar salvo com sucesso:', lugar);
-          this.camposForm.reset();
+      this.service.listarTodos().subscribe({
+        next: (lugares) => {
+          const nome = this.camposForm.value.nome?.toLowerCase();
+          if (lugares.some((lug) => lug.nome!.toLowerCase() === nome)) {
+            this.mostrarMensagem('Lugar já existe!');
+            return;
+          }
+          this.service.salvar(this.camposForm.value).subscribe({
+            next: (lugar) => {
+              this.mostrarMensagem('Lugar salvo com sucesso!');
+              this.camposForm.reset();
+            },
+            error: (error) => {
+              this.mostrarMensagem('Erro ao salvar o lugar: ' + error);
+            },
+          });
         },
-        error: (error) => console.error('Erro ao salvar o lugar:', error),
+        error: (error) => this.mostrarMensagem('Erro ao verificar lugares: ' + error),
       });
     }
   }
@@ -68,5 +86,8 @@ export class Lugar implements OnInit {
         this.camposForm.reset();
       }
     });
+  }
+  mostrarMensagem(mensagem: string) {
+    this.snack.open(mensagem, 'Ok', { duration: 3000 });
   }
 }

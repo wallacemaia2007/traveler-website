@@ -13,9 +13,11 @@ import { ConfirmationComponent } from './dialog/confirmation-component/confirmat
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AlertComponent } from './dialog/alert-component/alert-component';
 
 @NgModule({
-  declarations: [App, Landingpage, EditarLugarModalComponent, ConfirmationComponent],
+  declarations: [App, Landingpage, EditarLugarModalComponent, ConfirmationComponent, AlertComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +27,7 @@ import { MatIcon } from '@angular/material/icon';
     MatDialogModule,
     MatButtonModule,
     MatIcon,
+    MatSnackBarModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

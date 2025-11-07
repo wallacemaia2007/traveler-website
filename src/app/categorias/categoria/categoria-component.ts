@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriaService } from './service/categoria-service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from '../../dialog/confirmation-component/confirmation-component';
 import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-categoria',
@@ -13,6 +14,7 @@ import { ConfirmationData } from '../../dialog/confirmation-component/Confirmati
 })
 export class Categoria implements OnInit {
   camposForm: FormGroup;
+  snack: MatSnackBar = inject(MatSnackBar);
 
   constructor(private service: CategoriaService, private dialog: MatDialog) {
     this.camposForm = new FormGroup({
@@ -27,12 +29,23 @@ export class Categoria implements OnInit {
     this.camposForm.markAllAsTouched();
 
     if (this.camposForm.valid) {
-      this.service.salvar(this.camposForm.value).subscribe({
-        next: (categoria) => {
-          console.log('Categoria salva com sucesso:', categoria);
-          this.camposForm.reset();
+      this.service.listarTodos().subscribe({
+        next: (categorias) => {
+          const nome = this.camposForm.value.nome?.toLowerCase();
+          if (categorias.some((cat) => cat.nome!.toLowerCase() === nome)) {
+            this.mostrarMensagem('Categoria já existe!');
+            return;
+          }
+
+          this.service.salvar(this.camposForm.value).subscribe({
+            next: (categoria) => {
+              this.mostrarMensagem('Categoria salva com sucesso!');
+              this.camposForm.reset();
+            },
+            error: (error) => this.mostrarMensagem('Erro ao salvar a categoria: ' + error),
+          });
         },
-        error: (error) => console.error('Erro ao salvar categoria:', error),
+        error: (error) => this.mostrarMensagem('Erro ao verificar categorias: ' + error),
       });
     }
   }
@@ -59,5 +72,9 @@ export class Categoria implements OnInit {
         this.camposForm.reset();
       }
     });
+  }
+
+  mostrarMensagem(mensagem: string) {
+    this.snack.open(mensagem, 'Ok', { duration: 3000 });
   }
 }

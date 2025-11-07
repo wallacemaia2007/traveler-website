@@ -1,0 +1,22 @@
+<div class="p-1">
+    <h2 mat-dialog-title
+        class="text-lg font-semibold text-gray-800 border-b border-gray-200 pb-3 flex items-center gap-2">
+        <mat-icon color="warn">warning</mat-icon>
+        {{ data.title }}
+    </h2>
+    <mat-dialog-content class="mt-4 text-gray-600">
+        <p class="leading-relaxed">
+            {{ data.message }}
+        </p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end" class="pt-6">
+        <button mat-button (click)="cancelar()"
+            class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 text-gray-700 font-medium transition duration-150 ease-in-out">
+            {{ data.cancelText || 'Cancelar' }}
+        </button>
+        <button mat-flat-button color="warn" (click)="confirmar()"
+            class="ml-3 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-medium shadow-sm transition duration-150 ease-in-out">
+            {{ data.confirmText || 'Confirmar' }}
+        </button>
+    </mat-dialog-actions>
+</div>

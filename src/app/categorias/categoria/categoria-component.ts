@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriaService } from './service/categoria-service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationComponent } from '../../dialog/confirmation-component/confirmation-component';
+import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
 
 @Component({
   selector: 'app-categoria',
@@ -11,7 +14,7 @@ import { CategoriaService } from './service/categoria-service';
 export class Categoria implements OnInit {
   camposForm: FormGroup;
 
-  constructor(private service: CategoriaService) {
+  constructor(private service: CategoriaService, private dialog: MatDialog) {
     this.camposForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       descricao: new FormControl('', Validators.required),
@@ -40,8 +43,21 @@ export class Categoria implements OnInit {
   }
 
   resetarCampos() {
-    if (confirm('Deseja limpar os campos?')) {
-      this.camposForm.reset();
-    }
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      data: {
+        title: 'Limpar campos',
+        message: 'Deseja limpar os campos?',
+        confirmText: 'Excluir',
+        cancelText: 'Cancelar',
+      } as ConfirmationData,
+      enterAnimationDuration: '200ms',
+      exitAnimationDuration: '150ms',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.camposForm.reset();
+      }
+    });
   }
 }

@@ -3,6 +3,9 @@ import { LayoutProps } from './layout-props';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
 import { AuthGooleService } from '../../services/auth-goole-service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
+import { ConfirmationComponent } from '../../dialog/confirmation-component/confirmation-component';
 
 @Component({
   selector: 'app-layout',
@@ -16,7 +19,8 @@ export class Layout implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private loginService: AuthGooleService
+    private loginService: AuthGooleService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -38,11 +42,24 @@ export class Layout implements OnInit {
   }
 
   logout() {
-    const confirmLogout = confirm('Tem certeza que deseja sair?');
-    if (confirmLogout) {
-      this.loginService.logout();
-      this.router.navigate(['/']);
-    }
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      width: '400px',
+      data: {
+        title: 'Realizar Logout',
+        message: 'Tem certeza que deseja sair?',
+        confirmText: 'Sair',
+        cancelText: 'Cancelar',
+      } as ConfirmationData,
+      enterAnimationDuration: '200ms',
+      exitAnimationDuration: '150ms',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.loginService.logout();
+        this.router.navigate(['/']);
+      }
+    });
   }
 
   home() {

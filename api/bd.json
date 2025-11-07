@@ -14,6 +14,11 @@
       "id": "26f5",
       "nome": "Parque de diversão",
       "descricao": "Salve aqui todos os parques de diversão que você conhece!"
+    },
+    {
+      "id": "1bcd",
+      "nome": "Restaurantes",
+      "descricao": "Todos os restaurantes mais tops já visitados!"
     }
   ],
   "lugares": [
@@ -47,7 +52,7 @@
       "categoria": "Hotel",
       "localizacao": "São Paulo",
       "imagemUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/463460689.jpg?k=d3a3cdcbae2642ecd009c53676a48df398d971be602b8ef18ff1dcd7b95b2dd8&o=",
-      "avaliacao": "4"
+      "avaliacao": 5
     },
     {
       "id": "91d6",
@@ -63,7 +68,31 @@
       "categoria": "Parque de diversão",
       "localizacao": "Santa Catarina",
       "imagemUrl": "https://imgmd.net/images/v1/guia/3804252/atracoes-beto-carrero-world-tudo-o-que-voce-nao-pode-perder.jpg",
-      "avaliacao": "4"
+      "avaliacao": 5
+    },
+    {
+      "id": "2deb",
+      "nome": "Terraço Itália",
+      "categoria": "Restaurantes",
+      "localizacao": "São Paulo",
+      "imagemUrl": "https://www.terracoitalia.com.br/wp-content/uploads/2022/04/banner-sala-nobres.jpg",
+      "avaliacao": "5"
+    },
+    {
+      "id": "a03e",
+      "nome": "Pizzaria Cara de Mau",
+      "categoria": "Restaurantes",
+      "localizacao": "Rio Grande do Sul",
+      "imagemUrl": "https://www.carademau.com.br/images/img-local-final.jpg",
+      "avaliacao": "5"
+    },
+    {
+      "id": "c33a",
+      "nome": "Copacabana Palace",
+      "categoria": "Hotel",
+      "localizacao": "Rio de Janeiro",
+      "imagemUrl": "https://viagemelifestyle.com/wp-content/uploads/2024/03/cop_buren-1-1.jpg",
+      "avaliacao": "5"
     }
   ]
 }

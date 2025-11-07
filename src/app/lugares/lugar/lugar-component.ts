@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriaClass } from '../../categorias/categoriaClass';
 import { CategoriaService } from '../../categorias/categoria/service/categoria-service';
 import { LugarService } from '../service/lugar-service';
+import { ConfirmationComponent } from '../../dialog/confirmation-component/confirmation-component';
+import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-lugar',
@@ -20,7 +23,7 @@ export class Lugar implements OnInit {
     });
   }
 
-  constructor(private categoriaService: CategoriaService, private service: LugarService) {
+  constructor(private categoriaService: CategoriaService, private service: LugarService, private dialog: MatDialog) {
     this.camposForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       categoria: new FormControl('', Validators.required),
@@ -49,9 +52,21 @@ export class Lugar implements OnInit {
   }
 
   resetarCampos() {
-    const confirmacaoMsg = 'Deseja limpar os campos?';
-    if (confirm(confirmacaoMsg)) {
-      this.camposForm.reset();
-    }
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      data: {
+        title: 'Limpar campos',
+        message: 'Deseja limpar os campos?',
+        confirmText: 'Excluir',
+        cancelText: 'Cancelar',
+      } as ConfirmationData,
+      enterAnimationDuration: '200ms',
+      exitAnimationDuration: '150ms',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.camposForm.reset();
+      }
+    });
   }
 }

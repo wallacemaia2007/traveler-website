@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
-import { LugarService } from '../lugares/service/lugar-service';
-import { LugarClass } from '../lugares/lugarClass';
+import { LugarService } from '../../lugares/service/lugar-service';
+import { LugarClass } from '../../lugares/lugarClass';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CategoriaClass } from '../categorias/categoriaClass';
-import { CategoriaService } from '../categorias/categoria/service/categoria-service';
+import { CategoriaClass } from '../../categorias/categoriaClass';
+import { CategoriaService } from '../../categorias/categoria/service/categoria-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

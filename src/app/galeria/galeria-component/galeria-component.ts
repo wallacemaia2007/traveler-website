@@ -5,8 +5,8 @@ import { LugarClass } from '../../lugares/lugarClass';
 import { CategoriaClass } from '../../categorias/categoriaClass';
 import { Router } from '@angular/router';
 import { ModalService } from '../../services/modal-service';
-import { ModalComponent } from '../../modal-component/modal-component';
-import { EditarLugarModalComponent } from '../../edit-modal-component/edit-modal-component';
+import { ModalComponent } from '../../modals/modal-component/modal-component';
+import { EditarLugarModalComponent } from '../../modals/edit-modal-component/edit-modal-component';
 
 @Component({
   selector: 'app-galeria-component',

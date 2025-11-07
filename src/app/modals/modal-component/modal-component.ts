@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CommonModule } from '@angular/common';
-import { LugarClass } from '../lugares/lugarClass';
-import { GaleriaService } from '../galeria/service/galeria-service';
+import { LugarClass } from '../../lugares/lugarClass';
+import { GaleriaService } from '../../galeria/service/galeria-service';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationComponent } from '../dialog/confirmation-component/confirmation-component';
-import { ConfirmationData } from '../dialog/confirmation-component/ConfirmationData';
-import { LugarService } from '../lugares/service/lugar-service';
+import { ConfirmationComponent } from '../../dialog/confirmation-component/confirmation-component';
+import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
+import { LugarService } from '../../lugares/service/lugar-service';
 
 @Component({
   selector: 'app-modal-detalhes-lugar',

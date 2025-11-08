@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from '../../dialog/confirmation-component/confirmation-component';
 import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DialogService } from '../../dialog/service/dialog-service';
 
 @Component({
   selector: 'app-categoria',
@@ -14,9 +15,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class Categoria implements OnInit {
   camposForm: FormGroup;
-  snack: MatSnackBar = inject(MatSnackBar);
 
-  constructor(private service: CategoriaService, private dialog: MatDialog) {
+  constructor(private service: CategoriaService, private dialog: MatDialog, private dialogService: DialogService) {
     this.camposForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       descricao: new FormControl('', Validators.required),
@@ -33,19 +33,19 @@ export class Categoria implements OnInit {
         next: (categorias) => {
           const nome = this.camposForm.value.nome?.toLowerCase();
           if (categorias.some((cat) => cat.nome!.toLowerCase() === nome)) {
-            this.mostrarMensagem('Categoria já existe!');
+            this.dialogService.aviso('Categoria já existe!');
             return;
           }
 
           this.service.salvar(this.camposForm.value).subscribe({
             next: (categoria) => {
-              this.mostrarMensagem('Categoria salva com sucesso!');
+              this.dialogService.sucesso('Categoria salva com sucesso!');
               this.camposForm.reset();
             },
-            error: (error) => this.mostrarMensagem('Erro ao salvar a categoria: ' + error),
+            error: (error) => this.dialogService.erro('Erro ao salvar a categoria: ' + error),
           });
         },
-        error: (error) => this.mostrarMensagem('Erro ao verificar categorias: ' + error),
+        error: (error) => this.dialogService.erro('Erro ao listar categorias: ' + error),
       });
     }
   }
@@ -74,7 +74,4 @@ export class Categoria implements OnInit {
     });
   }
 
-  mostrarMensagem(mensagem: string) {
-    this.snack.open(mensagem, 'Ok', { duration: 3000 });
-  }
 }

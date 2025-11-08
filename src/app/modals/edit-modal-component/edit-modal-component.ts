@@ -5,12 +5,12 @@ import { LugarClass } from '../../lugares/lugarClass';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriaClass } from '../../categorias/categoriaClass';
 import { CategoriaService } from '../../categorias/categoria/service/categoria-service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { DialogService } from '../../dialog/service/dialog-service';
 
 @Component({
   selector: 'app-editar-lugar-modal',
   standalone: false,
-  templateUrl: './edit-modal-component.html',
+  templateUrl:'./edit-modal-component.html',
 })
 export class EditarLugarModalComponent implements OnInit {
   lugar: LugarClass;
@@ -22,7 +22,7 @@ export class EditarLugarModalComponent implements OnInit {
     private categoriaService: CategoriaService,
     private dialogRef: DialogRef<{ acao: string; lugar: LugarClass }>,
     @Inject(DIALOG_DATA) public data: { lugar: LugarClass },
-    private snack: MatSnackBar,
+    private dialogService: DialogService
   ) {
     this.lugar = { ...data.lugar };
     this.camposForm = new FormGroup({
@@ -42,7 +42,7 @@ export class EditarLugarModalComponent implements OnInit {
 
   salvarAlteracoes() {
     if (!this.lugar?.id) {
-      this.mostrarMensagem('Lugar inválido para atualização.');
+      this.dialogService.erro('Lugar inválido para atualização.');
       return;
     }
 
@@ -57,20 +57,16 @@ export class EditarLugarModalComponent implements OnInit {
     };
     this.lugarService.atualizar(lugarAtualizado.id!, lugarAtualizado).subscribe({
       next: (response) => {
-        this.mostrarMensagem('Lugar atualizado com sucesso!');
+        this.dialogService.sucesso('Lugar atualizado com sucesso!');
         this.dialogRef.close({ acao: 'atualizado', lugar: lugarAtualizado });
       },
       error: (error) => {
-        this.mostrarMensagem('Erro ao atualizar o lugar: ' + error);
+        this.dialogService.erro('Erro ao atualizar o lugar: ' + error);
       },
     });
   }
 
   cancelar() {
     this.dialogRef.close();
-  }
-
-  mostrarMensagem(mensagem: string) {
-    this.snack.open(mensagem, 'Ok', { duration: 3000 });
   }
 }

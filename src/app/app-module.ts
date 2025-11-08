@@ -14,10 +14,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { AlertComponent } from './dialog/alert-component/alert-component';
 
 @NgModule({
-  declarations: [App, Landingpage, EditarLugarModalComponent, ConfirmationComponent, AlertComponent],
+  declarations: [App, Landingpage, EditarLugarModalComponent, ConfirmationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

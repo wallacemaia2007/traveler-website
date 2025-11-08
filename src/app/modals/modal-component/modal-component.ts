@@ -6,7 +6,7 @@ import { GaleriaService } from '../../galeria/service/galeria-service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from '../../dialog/confirmation-component/confirmation-component';
 import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
-import { LugarService } from '../../lugares/service/lugar-service';
+import { DialogService } from '../../dialog/service/dialog-service';
 
 @Component({
   selector: 'app-modal-detalhes-lugar',
@@ -20,7 +20,10 @@ export class ModalComponent {
   private dialogRef = inject(DialogRef);
   galeriaService = inject(GaleriaService);
 
-  constructor(private dialog: MatDialog, private lugarService: LugarService) {}
+  constructor(
+    private dialog: MatDialog,
+    private dialogService: DialogService
+  ) {}
 
   getEstrelasHtml(): string {
     const avaliacao = this.lugar.avaliacao || 0;
@@ -57,6 +60,7 @@ export class ModalComponent {
       if (result) {
         this.galeriaService.emitirDelecao(this.lugar);
         this.dialogRef.close({ acao: 'deletar', lugar: this.lugar });
+        this.dialogService.sucesso('Lugar excluído com sucesso!');
       }
     });
   }

@@ -7,6 +7,7 @@ import { ConfirmationComponent } from '../../dialog/confirmation-component/confi
 import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DialogService } from '../../dialog/service/dialog-service';
 
 @Component({
   selector: 'app-lugar',
@@ -28,7 +29,8 @@ export class Lugar implements OnInit {
   constructor(
     private categoriaService: CategoriaService,
     private service: LugarService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dialogService: DialogService
   ) {
     this.camposForm = new FormGroup({
       nome: new FormControl('', Validators.required),
@@ -46,20 +48,20 @@ export class Lugar implements OnInit {
         next: (lugares) => {
           const nome = this.camposForm.value.nome?.toLowerCase();
           if (lugares.some((lug) => lug.nome!.toLowerCase() === nome)) {
-            this.mostrarMensagem('Lugar já existe!');
+            this.dialogService.aviso('Lugar já existe!');
             return;
           }
           this.service.salvar(this.camposForm.value).subscribe({
             next: (lugar) => {
-              this.mostrarMensagem('Lugar salvo com sucesso!');
+              this.dialogService.sucesso('Lugar salvo com sucesso!');
               this.camposForm.reset();
             },
             error: (error) => {
-              this.mostrarMensagem('Erro ao salvar o lugar: ' + error);
+              this.dialogService.erro('Erro ao salvar o lugar: ' + error);
             },
           });
         },
-        error: (error) => this.mostrarMensagem('Erro ao verificar lugares: ' + error),
+        error: (error) => this.dialogService.erro('Erro ao listar lugares: ' + error),
       });
     }
   }
@@ -86,8 +88,5 @@ export class Lugar implements OnInit {
         this.camposForm.reset();
       }
     });
-  }
-  mostrarMensagem(mensagem: string) {
-    this.snack.open(mensagem, 'Ok', { duration: 3000 });
   }
 }

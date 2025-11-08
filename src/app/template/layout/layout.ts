@@ -6,6 +6,7 @@ import { AuthGooleService } from '../../services/auth-goole-service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationData } from '../../dialog/confirmation-component/ConfirmationData';
 import { ConfirmationComponent } from '../../dialog/confirmation-component/confirmation-component';
+import { DialogService } from '../../dialog/service/dialog-service';
 
 @Component({
   selector: 'app-layout',
@@ -20,7 +21,8 @@ export class Layout implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private loginService: AuthGooleService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +60,7 @@ export class Layout implements OnInit {
       if (result) {
         this.loginService.logout();
         this.router.navigate(['/']);
+        this.dialogService.sucesso('Logout realizado com sucesso!');
       }
     });
   }

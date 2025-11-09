@@ -38,6 +38,7 @@ Uma aplicação web moderna para gerenciar e explorar seus lugares favoritos par
 - ✅ **Criar, Editar e Excluir** lugares e categorias
 - 🔍 **Filtrar** por nome e categoria em tempo real
 - ⭐ **Avaliar** lugares (sistema de 1-5 estrelas)
+- 📝 **Adicionar notas** personalizadas para cada lugar
 - 📋 **Validação de formulários** em tempo real
 - 🗑️ **Confirmação de exclusão** para segurança
 
@@ -148,6 +149,32 @@ src/
 
 ---
 
+## 📊 Modelo de Dados
+
+### Lugar
+```typescript
+{
+  id: string;
+  nome: string;
+  categoria: string;
+  localizacao: string;
+  imagemUrl: string;
+  avaliacao: number;     // 1-5 estrelas
+  notas: string;         // 📝 Observações personalizadas
+}
+```
+
+### Categoria
+```typescript
+{
+  id: string;
+  nome: string;
+  descricao: string;
+}
+```
+
+---
+
 ## 🎯 Destaques Técnicos
 
 ### Sistema de Notificações Colorido
@@ -170,7 +197,10 @@ this.loginService.logout();
 this.camposForm = new FormGroup({
   nome: new FormControl('', Validators.required),
   categoria: new FormControl('', Validators.required),
-  avaliacao: new FormControl('', Validators.required)
+  localizacao: new FormControl('', Validators.required),
+  imagemUrl: new FormControl('', Validators.required),
+  avaliacao: new FormControl('', Validators.required),
+  notas: new FormControl('', Validators.required)
 });
 ```
 

@@ -29,6 +29,16 @@
       "id": "55ab",
       "nome": "Montanhas",
       "descricao": "Lugares incríveis para quem ama natureza e altitude!"
+    },
+    {
+      "id": "77cd",
+      "nome": "Cachoeiras",
+      "descricao": "As quedas d'água mais lindas e refrescantes para visitar!"
+    },
+    {
+      "id": "99de",
+      "nome": "Cidades Históricas",
+      "descricao": "Destinos que contam a história e preservam o patrimônio cultural!"
     }
   ],
   "lugares": [
@@ -51,6 +61,15 @@
       "notas": "Praia linda!\nÁgua super limpa, além de uma vista fantástica!"
     },
     {
+      "id": "p003",
+      "nome": "Praia do Sancho",
+      "categoria": "Praia",
+      "localizacao": "Fernando de Noronha - PE",
+      "imagemUrl": "https://viagem.cnnbrasil.com.br/wp-content/uploads/sites/5/2021/02/Baia-do-Sancho.jpg?w=1024",
+      "avaliacao": "5",
+      "notas": "Eleita uma das praias mais bonitas do mundo! Perfeita para mergulho e relaxamento."
+    },
+    {
       "id": "2997",
       "nome": "Hotel Colline de France",
       "categoria": "Hotel",
@@ -67,6 +86,15 @@
       "imagemUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/463460689.jpg?k=d3a3cdcbae2642ecd009c53676a48df398d971be602b8ef18ff1dcd7b95b2dd8&o=",
       "avaliacao": "4",
       "notas": "Arquitetura de castelo europeu e clima romântico. Ótimo café da manhã!"
+    },
+    {
+      "id": "c33a",
+      "nome": "Copacabana Palace",
+      "categoria": "Hotel",
+      "localizacao": "Rio de Janeiro",
+      "imagemUrl": "https://viagemelifestyle.com/wp-content/uploads/2024/03/cop_buren-1-1.jpg",
+      "avaliacao": "5",
+      "notas": "Hotel histórico e luxuoso, ícone do Rio de Janeiro. Experiência inesquecível!"
     },
     {
       "id": "91d6",
@@ -87,6 +115,15 @@
       "notas": "Diversão garantida! O maior parque temático da América Latina, cheio de espetáculos e brinquedos radicais."
     },
     {
+      "id": "pd003",
+      "nome": "Beach Park",
+      "categoria": "Parque de diversão",
+      "localizacao": "Aquiraz - Ceará",
+      "imagemUrl": "https://beachpark.com.br/app/uploads/2024/05/Ingressos-OP.jpg",
+      "avaliacao": "5",
+      "notas": "Parque aquático incrível com toboáguas gigantes e diversão garantida para toda a família!"
+    },
+    {
       "id": "2deb",
       "nome": "Terraço Itália",
       "categoria": "Restaurantes",
@@ -105,13 +142,13 @@
       "notas": "Pizzaria temática incrível! Ambiente divertido e pizzas deliciosas."
     },
     {
-      "id": "c33a",
-      "nome": "Copacabana Palace",
-      "categoria": "Hotel",
-      "localizacao": "Rio de Janeiro",
-      "imagemUrl": "https://viagemelifestyle.com/wp-content/uploads/2024/03/cop_buren-1-1.jpg",
-      "avaliacao": "5",
-      "notas": "Hotel histórico e luxuoso, ícone do Rio de Janeiro. Experiência inesquecível!"
+      "id": "r003",
+      "nome": "Outback Steakhouse",
+      "categoria": "Restaurantes",
+      "localizacao": "Diversas cidades do Brasil",
+      "imagemUrl": "https://economicnewsbrasil.com.br/wp-content/uploads/2024/05/Expansao-do-Outback-no-Brasil.-Foto-Divulgacao-Outback.jpg",
+      "avaliacao": "4",
+      "notas": "Rede famosa por suas costelas suculentas e ambiente acolhedor com estilo australiano."
     },
     {
       "id": "m001",
@@ -141,6 +178,15 @@
       "notas": "Museu histórico que conta a história do império brasileiro. Lugar tranquilo e cheio de cultura."
     },
     {
+      "id": "m004",
+      "nome": "Instituto Inhotim",
+      "categoria": "Museus",
+      "localizacao": "Brumadinho - MG",
+      "imagemUrl": "https://www.melhoresdestinos.com.br/wp-content/uploads/2020/08/inhotim-capa2019-01.jpg",
+      "avaliacao": "5",
+      "notas": "Maior museu a céu aberto da América Latina, mistura arte contemporânea e natureza exuberante."
+    },
+    {
       "id": "mo01",
       "nome": "Pico da Bandeira",
       "categoria": "Montanhas",
@@ -166,6 +212,78 @@
       "imagemUrl": "https://i0.wp.com/pisa.tur.br/blog/wp-content/uploads/2018/07/roraima_capablog-1.jpg?fit=1024%2C448&ssl=1",
       "avaliacao": "5",
       "notas": "Montanha mística e imponente na fronteira com a Venezuela. Um destino de aventura!"
+    },
+    {
+      "id": "mo04",
+      "nome": "Serra da Mantiqueira",
+      "categoria": "Montanhas",
+      "localizacao": "Minas Gerais / São Paulo / Rio de Janeiro",
+      "imagemUrl": "https://www.cvc.com.br/dicas-de-viagem/wp-content/uploads/2018/10/serra-da-mantiqueira-166667380.jpg",
+      "avaliacao": "5",
+      "notas": "Região montanhosa famosa pelo clima frio e belas paisagens. Excelente para trilhas e descanso."
+    },
+    {
+      "id": "ch001",
+      "nome": "Cachoeira da Fumaça",
+      "categoria": "Cachoeiras",
+      "localizacao": "Chapada Diamantina - BA",
+      "imagemUrl": "https://imgmd.net/images/v1/guia/1622951/cachoeira-da-fumaca.jpg",
+      "avaliacao": "5",
+      "notas": "Uma das maiores quedas d'água do Brasil! Visual impressionante e trilha incrível."
+    },
+    {
+      "id": "ch002",
+      "nome": "Cachoeira Véu da Noiva",
+      "categoria": "Cachoeiras",
+      "localizacao": "Cuiabá - MT",
+      "imagemUrl": "https://images.mnstatic.com/60/83/60830b471c639de72a26a453c9869961.jpg",
+      "avaliacao": "4",
+      "notas": "Linda cachoeira no Parque Nacional da Chapada dos Guimarães. Ótimo local para fotos!"
+    },
+    {
+      "id": "ch003",
+      "nome": "Cachoeira do Tabuleiro",
+      "categoria": "Cachoeiras",
+      "localizacao": "Conceição do Mato Dentro - MG",
+      "imagemUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Mirante_tabuleiro.jpg",
+      "avaliacao": "5",
+      "notas": "A maior cachoeira de Minas Gerais, com uma queda impressionante e poço para banho."
+    },
+    {
+      "id": "h001",
+      "nome": "Ouro Preto",
+      "categoria": "Cidades Históricas",
+      "localizacao": "Minas Gerais",
+      "imagemUrl": "https://imgmd.net/images/v1/guia/1699207/ouro-preto-206-c.jpg",
+      "avaliacao": "5",
+      "notas": "Cidade colonial com ruas de pedra e igrejas históricas. Patrimônio Mundial da UNESCO!"
+    },
+    {
+      "id": "h002",
+      "nome": "Paraty",
+      "categoria": "Cidades Históricas",
+      "localizacao": "Rio de Janeiro",
+      "imagemUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/56/b6/7d/caption.jpg?w=900&h=500&s=1",
+      "avaliacao": "5",
+      "notas": "Cidade litorânea charmosa com casarões coloniais e belas praias próximas."
+    },
+    {
+      "id": "h003",
+      "nome": "São João del-Rei",
+      "categoria": "Cidades Históricas",
+      "localizacao": "Minas Gerais",
+      "imagemUrl": "https://blog.blablacar.com.br/wp-content/uploads/2024/10/sao-francisco-de-assis-igreja-sao-joao-del-rei.webp",
+      "avaliacao": "4",
+      "notas": "Cidade mineira com rica arquitetura barroca e ótimo ponto de partida para Tiradentes."
+    },
+    {
+      "id": "h003",
+      "nome": "Diamantina",
+      "categoria": "Cidades Históricas",
+      "localizacao": "Minas Gerais",
+      "imagemUrl": "https://www.abraceomundo.com/wp-content/uploads/2021/01/o-que-fazer-em-diamantina-696x463.jpg",
+      "avaliacao": "4",
+      "notas": "Cidade mineira com rica arquitetura barroca, cidade muito calma e tranquila!."
     }
   ]
 }

@@ -38,6 +38,7 @@ export class Lugar implements OnInit {
       localizacao: new FormControl('', Validators.required),
       imagemUrl: new FormControl('', Validators.required),
       avaliacao: new FormControl('', Validators.required),
+      notas: new FormControl('', Validators.required),
     });
   }
 

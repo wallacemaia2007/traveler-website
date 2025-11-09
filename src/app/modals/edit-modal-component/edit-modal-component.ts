@@ -31,6 +31,7 @@ export class EditarLugarModalComponent implements OnInit {
       localizacao: new FormControl(this.lugar.localizacao, Validators.required),
       imagemUrl: new FormControl(this.lugar.imagemUrl, Validators.required),
       avaliacao: new FormControl(this.lugar.avaliacao, Validators.required),
+      notas: new FormControl(this.lugar.notas, Validators.required),
     });
   }
 

@@ -56,6 +56,15 @@
             <span class="text-red-500 text-sm">Campo obrigatório</span>
             }
         </div>
+        <div class="mb-4">
+            <label for="notas" class="block text-gray-600 font-medium mb-2">Notas</label>
+            <textarea rows="4" id="notas" name="notas" formControlName="notas" placeholder="Suas notas sobre o lugar"
+                class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring-blue-400 focus:outline-none"
+                required></textarea>
+            @if (isCampoInvalido('notas')) {
+            <span class="text-red-500 text-sm">Campo obrigatório</span>
+            }
+        </div>
         <div class="flex justify-center mt-5">
             <button type="submit"
                 class="w-40 bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition-colors disabled:cursor-not-allowed disabled:opacity-50"

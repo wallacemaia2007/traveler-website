@@ -19,6 +19,16 @@
       "id": "1bcd",
       "nome": "Restaurantes",
       "descricao": "Todos os restaurantes mais tops já visitados!"
+    },
+    {
+      "id": "88ef",
+      "nome": "Museus",
+      "descricao": "Explore os museus mais incríveis do mundo!"
+    },
+    {
+      "id": "55ab",
+      "nome": "Montanhas",
+      "descricao": "Lugares incríveis para quem ama natureza e altitude!"
     }
   ],
   "lugares": [
@@ -28,7 +38,8 @@
       "categoria": "Praia",
       "localizacao": "Rio de Janeiro",
       "imagemUrl": "https://inbuzios.com.br/blog/wp-content/uploads/2023/12/1.png",
-      "avaliacao": "5"
+      "avaliacao": "5",
+      "notas": "Praia paradisíaca com águas cristalinas e areia branquinha. Ideal para mergulhos!"
     },
     {
       "id": "aaf6",
@@ -36,7 +47,8 @@
       "categoria": "Praia",
       "localizacao": "Espírito Santo",
       "imagemUrl": "https://i0.wp.com/omelhormesdoano.com/wp-content/uploads/2017/05/Praia-dos-Padres-Guarapari-1_-1.jpg?fit=1024%2C681&ssl=1",
-      "avaliacao": "5"
+      "avaliacao": "5",
+      "notas": "Praia linda!\nÁgua super limpa, além de uma vista fantástica!"
     },
     {
       "id": "2997",
@@ -44,7 +56,8 @@
       "categoria": "Hotel",
       "localizacao": "Rio Grande do Sul",
       "imagemUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/00/50/fd/hotel-colline-de-france.jpg?w=900&h=-1&s=1",
-      "avaliacao": "5"
+      "avaliacao": "5",
+      "notas": "Hotel luxuoso em Gramado com decoração inspirada em castelos franceses. Atendimento impecável!"
     },
     {
       "id": "cc6b",
@@ -52,7 +65,8 @@
       "categoria": "Hotel",
       "localizacao": "São Paulo",
       "imagemUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/463460689.jpg?k=d3a3cdcbae2642ecd009c53676a48df398d971be602b8ef18ff1dcd7b95b2dd8&o=",
-      "avaliacao": 5
+      "avaliacao": "4",
+      "notas": "Arquitetura de castelo europeu e clima romântico. Ótimo café da manhã!"
     },
     {
       "id": "91d6",
@@ -60,15 +74,17 @@
       "categoria": "Parque de diversão",
       "localizacao": "São Paulo",
       "imagemUrl": "https://i0.statig.com.br/hopihari/img/DJI_0066-3.jpg",
-      "avaliacao": "5"
+      "avaliacao": "5",
+      "notas": "Um dos maiores parques temáticos do Brasil, cheio de atrações para todas as idades!"
     },
     {
       "id": "976c",
-      "nome": "Beto Carrero",
+      "nome": "Beto Carrero World",
       "categoria": "Parque de diversão",
       "localizacao": "Santa Catarina",
       "imagemUrl": "https://imgmd.net/images/v1/guia/3804252/atracoes-beto-carrero-world-tudo-o-que-voce-nao-pode-perder.jpg",
-      "avaliacao": 5
+      "avaliacao": "5",
+      "notas": "Diversão garantida! O maior parque temático da América Latina, cheio de espetáculos e brinquedos radicais."
     },
     {
       "id": "2deb",
@@ -76,7 +92,8 @@
       "categoria": "Restaurantes",
       "localizacao": "São Paulo",
       "imagemUrl": "https://www.terracoitalia.com.br/wp-content/uploads/2022/04/banner-sala-nobres.jpg",
-      "avaliacao": "5"
+      "avaliacao": "5",
+      "notas": "Restaurante elegante com uma das vistas mais lindas da cidade de São Paulo!"
     },
     {
       "id": "a03e",
@@ -84,7 +101,8 @@
       "categoria": "Restaurantes",
       "localizacao": "Rio Grande do Sul",
       "imagemUrl": "https://www.carademau.com.br/images/img-local-final.jpg",
-      "avaliacao": "5"
+      "avaliacao": "5",
+      "notas": "Pizzaria temática incrível! Ambiente divertido e pizzas deliciosas."
     },
     {
       "id": "c33a",
@@ -92,7 +110,62 @@
       "categoria": "Hotel",
       "localizacao": "Rio de Janeiro",
       "imagemUrl": "https://viagemelifestyle.com/wp-content/uploads/2024/03/cop_buren-1-1.jpg",
-      "avaliacao": "5"
+      "avaliacao": "5",
+      "notas": "Hotel histórico e luxuoso, ícone do Rio de Janeiro. Experiência inesquecível!"
+    },
+    {
+      "id": "m001",
+      "nome": "Museu do Amanhã",
+      "categoria": "Museus",
+      "localizacao": "Rio de Janeiro",
+      "imagemUrl": "https://blog.blablacar.com.br/wp-content/uploads/2024/04/museu-do-amanha-rj.webp",
+      "avaliacao": "5",
+      "notas": "Museu moderno e interativo sobre ciência e sustentabilidade. Arquitetura impressionante!"
+    },
+    {
+      "id": "m002",
+      "nome": "Museu de Arte de São Paulo (MASP)",
+      "categoria": "Museus",
+      "localizacao": "São Paulo",
+      "imagemUrl": "https://www.melhoresdestinos.com.br/wp-content/uploads/2019/02/passagens-aereas-sao-paulo-capa2019-02.jpg",
+      "avaliacao": "5",
+      "notas": "Um dos museus mais importantes da América Latina. Acervo riquíssimo e exposições marcantes."
+    },
+    {
+      "id": "m003",
+      "nome": "Museu Imperial",
+      "categoria": "Museus",
+      "localizacao": "Petrópolis, RJ",
+      "imagemUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/f4/3e/ed/city-tour-rio.jpg?w=1200&h=-1&s=1",
+      "avaliacao": "4",
+      "notas": "Museu histórico que conta a história do império brasileiro. Lugar tranquilo e cheio de cultura."
+    },
+    {
+      "id": "mo01",
+      "nome": "Pico da Bandeira",
+      "categoria": "Montanhas",
+      "localizacao": "Espírito Santo / Minas Gerais",
+      "imagemUrl": "https://www.zapimoveis.com.br/blog/wp-content/uploads/2023/07/Topo-pico-da-bandeira-ok.jpg",
+      "avaliacao": "5",
+      "notas": "Terceiro ponto mais alto do Brasil, com vista espetacular e trilhas incríveis!"
+    },
+    {
+      "id": "mo02",
+      "nome": "Serra do Cipó",
+      "categoria": "Montanhas",
+      "localizacao": "Minas Gerais",
+      "imagemUrl": "https://i0.wp.com/pisa.tur.br/blog/wp-content/uploads/2019/07/serra-do-cip%C3%B3-capablog.jpg?fit=1024%2C448&ssl=1",
+      "avaliacao": "4",
+      "notas": "Região perfeita para ecoturismo e cachoeiras. Cenário natural deslumbrante."
+    },
+    {
+      "id": "mo03",
+      "nome": "Monte Roraima",
+      "categoria": "Montanhas",
+      "localizacao": "Roraima",
+      "imagemUrl": "https://i0.wp.com/pisa.tur.br/blog/wp-content/uploads/2018/07/roraima_capablog-1.jpg?fit=1024%2C448&ssl=1",
+      "avaliacao": "5",
+      "notas": "Montanha mística e imponente na fronteira com a Venezuela. Um destino de aventura!"
     }
   ]
 }

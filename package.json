@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "server": "json-server ./api/bd.json"
+    "server": "json-server ./api/bd.json",
+    "server:production": "json-server ./api/bd.production.json --port 4000"
   },
   "prettier": {
     "printWidth": 100,

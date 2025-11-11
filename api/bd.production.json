@@ -1,0 +1,118 @@
+{
+  "categorias": [
+    {
+      "id": "122a",
+      "nome": "Praia",
+      "descricao": "Salve aqui todas as praias que você conhece!"
+    },
+    {
+      "id": "76aa",
+      "nome": "Hotel",
+      "descricao": "Salve aqui todos os hotéis que você conhece!"
+    },
+    {
+      "id": "26f5",
+      "nome": "Parque de diversão",
+      "descricao": "Salve aqui todos os parques de diversão que você conhece!"
+    },
+    {
+      "id": "1bcd",
+      "nome": "Restaurantes",
+      "descricao": "Todos os restaurantes mais tops já visitados!"
+    },
+    {
+      "id": "88ef",
+      "nome": "Museus",
+      "descricao": "Explore os museus mais incríveis do mundo!"
+    },
+    {
+      "id": "55ab",
+      "nome": "Montanhas",
+      "descricao": "Lugares incríveis para quem ama natureza e altitude!"
+    },
+    {
+      "id": "77cd",
+      "nome": "Cachoeiras",
+      "descricao": "As quedas d'água mais lindas e refrescantes para visitar!"
+    },
+    {
+      "id": "99de",
+      "nome": "Cidades Históricas",
+      "descricao": "Destinos que contam a história e preservam o patrimônio cultural!"
+    }
+  ],
+  "lugares": [
+    {
+      "id": "aa57",
+      "nome": "Praia Arraial do Cabo",
+      "categoria": "Praia",
+      "localizacao": "Rio de Janeiro",
+      "imagemUrl": "https://inbuzios.com.br/blog/wp-content/uploads/2023/12/1.png",
+      "avaliacao": "5",
+      "notas": "Praia paradisíaca com águas cristalinas e areia branquinha. Ideal para mergulhos!"
+    },
+    {
+      "id": "2997",
+      "nome": "Hotel Colline de France",
+      "categoria": "Hotel",
+      "localizacao": "Rio Grande do Sul",
+      "imagemUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/00/50/fd/hotel-colline-de-france.jpg?w=900&h=-1&s=1",
+      "avaliacao": "5",
+      "notas": "Hotel luxuoso em Gramado com decoração inspirada em castelos franceses. Atendimento impecável!"
+    },
+    {
+      "id": "91d6",
+      "nome": "Hopi Hari",
+      "categoria": "Parque de diversão",
+      "localizacao": "São Paulo",
+      "imagemUrl": "https://i0.statig.com.br/hopihari/img/DJI_0066-3.jpg",
+      "avaliacao": "5",
+      "notas": "Um dos maiores parques temáticos do Brasil, cheio de atrações para todas as idades!"
+    },
+    {
+      "id": "2deb",
+      "nome": "Terraço Itália",
+      "categoria": "Restaurantes",
+      "localizacao": "São Paulo",
+      "imagemUrl": "https://www.terracoitalia.com.br/wp-content/uploads/2022/04/banner-sala-nobres.jpg",
+      "avaliacao": "5",
+      "notas": "Restaurante elegante com uma das vistas mais lindas da cidade de São Paulo!"
+    },
+    {
+      "id": "m001",
+      "nome": "Museu do Amanhã",
+      "categoria": "Museus",
+      "localizacao": "Rio de Janeiro",
+      "imagemUrl": "https://blog.blablacar.com.br/wp-content/uploads/2024/04/museu-do-amanha-rj.webp",
+      "avaliacao": "5",
+      "notas": "Museu moderno e interativo sobre ciência e sustentabilidade. Arquitetura impressionante!"
+    },
+    {
+      "id": "mo01",
+      "nome": "Pico da Bandeira",
+      "categoria": "Montanhas",
+      "localizacao": "Espírito Santo / Minas Gerais",
+      "imagemUrl": "https://www.zapimoveis.com.br/blog/wp-content/uploads/2023/07/Topo-pico-da-bandeira-ok.jpg",
+      "avaliacao": "5",
+      "notas": "Terceiro ponto mais alto do Brasil, com vista espetacular e trilhas incríveis!"
+    },
+    {
+      "id": "ch001",
+      "nome": "Cachoeira da Fumaça",
+      "categoria": "Cachoeiras",
+      "localizacao": "Chapada Diamantina - BA",
+      "imagemUrl": "https://imgmd.net/images/v1/guia/1622951/cachoeira-da-fumaca.jpg",
+      "avaliacao": "5",
+      "notas": "Uma das maiores quedas d'água do Brasil! Visual impressionante e trilha incrível."
+    },
+    {
+      "id": "h001",
+      "nome": "Ouro Preto",
+      "categoria": "Cidades Históricas",
+      "localizacao": "Minas Gerais",
+      "imagemUrl": "https://imgmd.net/images/v1/guia/1699207/ouro-preto-206-c.jpg",
+      "avaliacao": "5",
+      "notas": "Cidade colonial com ruas de pedra e igrejas históricas. Patrimônio Mundial da UNESCO!"
+    }
+  ]
+}

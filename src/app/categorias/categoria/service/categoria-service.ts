@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CategoriaClass } from '../../categoriaClass';
+import { environment } from '../../../../environments/environment';
 
 
 @Injectable({
@@ -9,17 +10,17 @@ import { CategoriaClass } from '../../categoriaClass';
 })
 export class CategoriaService {
 
-  dataBasePath: string = 'http://localhost:3000'
+  dataBasePath: string = environment.apiUrl + '/categorias';
 
   constructor(private http: HttpClient) { }
 
 
   salvar(categoria: CategoriaClass): Observable<CategoriaClass> {
-    return this.http.post<CategoriaClass>(this.dataBasePath + '/categorias', categoria);
+    return this.http.post<CategoriaClass>(this.dataBasePath, categoria);
   }
 
   listarTodos(): Observable<CategoriaClass[]>{
-    return this.http.get<CategoriaClass[]>(this.dataBasePath + '/categorias');
+    return this.http.get<CategoriaClass[]>(this.dataBasePath);
   }
   
 }

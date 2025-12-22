@@ -1,4 +1,4 @@
-# 🌍 Travel Places - Sistema de Gerenciamento de Lugares Favoritos
+# 🌍 Traveler Website - Sistema de Gerenciamento de Lugares Favoritos
 
 <div align="center">
 
